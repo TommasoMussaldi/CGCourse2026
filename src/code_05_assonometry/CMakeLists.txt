@@ -2,6 +2,11 @@ add_executable(code_05_assonometry main_05.cpp)
 
 find_package(OpenGL)
 
+add_custom_command(TARGET code_05_assonometry POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_CURRENT_SOURCE_DIR}/shaders
+    $<TARGET_FILE_DIR:code_05_assonometry>/shaders
+) 
 
 target_include_directories(code_05_assonometry PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}        # anchors relative includes here

@@ -2,7 +2,11 @@ add_executable(code_06_arm_rotations main_06.cpp)
 
 find_package(OpenGL)
 
-
+add_custom_command(TARGET code_06_arm_rotations POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_CURRENT_SOURCE_DIR}/shaders
+    $<TARGET_FILE_DIR:code_06_arm_rotations>/shaders
+)
 target_include_directories(code_06_arm_rotations PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}        # anchors relative includes here
 )

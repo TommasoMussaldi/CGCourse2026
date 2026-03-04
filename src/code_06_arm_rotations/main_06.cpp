@@ -19,7 +19,8 @@ and set the path properly.
 
 int main(void)
 {
-
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4); 
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
 	GLFWwindow* window;
 
 	/* Initialize the library */

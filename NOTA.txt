@@ -1,0 +1,2 @@
+per eseguire i programmi devi avere la cartella shaders anche nella directory di build e devi andare nella directory dei build 
+con cd, prima di eseguire senno non ti trova le shaders!
