@@ -3,5 +3,8 @@ add_subdirectory(code_01_setup_glfw)
 add_subdirectory(code_02_my_first_triangle)
 add_subdirectory(code_03_wrapping_shaders_buffers)
 add_subdirectory(code_04_robotic_arm_transformations)
+add_subdirectory(code_05_assonometry)
+add_subdirectory(code_06_arm_rotations)
+add_subdirectory(code_07_trackball)
 
 
