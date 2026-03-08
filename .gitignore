@@ -22,7 +22,7 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
-build/
+build/*
 external/glfw/docs/
 
 # .NET Core
