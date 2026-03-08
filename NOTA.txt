@@ -1,2 +1,10 @@
 per eseguire i programmi devi avere la cartella shaders anche nella directory di build e devi andare nella directory dei build 
 con cd, prima di eseguire senno non ti trova le shaders!
+
+
+controlla che wsl usi i driver giusti , 
+fai da terminale: 
+glxinfo | grep renderer   
+dovrebbe dare OpenGL renderer string: D3D12 (NVIDIA GeForce RTX 4070 SUPER) 
+e non llvmpipe (LLVM 20.1.2, 256 bits),
+da portatile non so cosa dovrebbe dare... prova a chieder a chatgpt 😭
