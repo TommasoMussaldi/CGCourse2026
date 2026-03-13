@@ -14,7 +14,7 @@
 
  	#define	TRACKBALL_AXES		// draw the trackball axes
  	#define	TRACKBALL_SPHERE	// draw the trackball sphere
-// 	#define SCISSOR		// show scissor  (also uncomment one of the others to see something)
+ //	#define SCISSOR		// show scissor  (also uncomment one of the others to see something)
  // #define ZFIGHT		// show Z Fighting
 // 	#define STENCIL		// show stenciling
 // #define BLENDING	// show blending

@@ -2,6 +2,13 @@ add_executable(code_08_raster main_08.cpp)
 
 find_package(OpenGL)
 
+# Copy the shaders directory to the build directory
+add_custom_command(
+    TARGET code_08_raster POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_CURRENT_SOURCE_DIR}/shaders
+        $<TARGET_FILE_DIR:code_08_raster>/shaders
+)
 
 target_include_directories(code_08_raster PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}        # anchors relative includes here

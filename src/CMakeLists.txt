@@ -6,5 +6,6 @@ add_subdirectory(code_04_robotic_arm_transformations)
 add_subdirectory(code_05_assonometry)
 add_subdirectory(code_06_arm_rotations)
 add_subdirectory(code_07_trackball)
+add_subdirectory(code_08_raster)
 
 
