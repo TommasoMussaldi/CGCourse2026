@@ -55,3 +55,8 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+*.cmake
+*.filters
+*.vcxproj
+*.sln
+*.ini
