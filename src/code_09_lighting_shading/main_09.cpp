@@ -127,6 +127,13 @@ float s_color[3] = { 0.5f,0.1f,0.2f };
 float e_color[3] = { 0.5f,0.1f,0.2f };
 float l_color[3] = { 0.9f,0.9f,0.9f };
 float shininess = 1.0;
+
+float ct_m = 0.5f;
+float ct_eta = 1.0;
+
+float on_sigma;
+float on_ro;
+
 /*  shading_mode = 0 // no shading
 	shading_mode = 1 // flat shading
 	shading_mode = 2 // Gauraud shading
@@ -146,6 +153,8 @@ void gui_setup() {
 		if (ImGui::Selectable("Flat-Per Face ", shading_mode == 1)) shading_mode = 1;
 		if (ImGui::Selectable("Gaurad", shading_mode == 2)) shading_mode = 2;
 		if (ImGui::Selectable("Phong", shading_mode == 3)) shading_mode = 3;
+		if (ImGui::Selectable("Cook-Torrance", shading_mode == 4)) shading_mode = 4;
+		if (ImGui::Selectable("Oren-Nayar", shading_mode == 5)) shading_mode = 5;
 		ImGui::EndMenu();
 	}
 	if (ImGui::BeginMenu("Light ")) {
@@ -161,6 +170,11 @@ void gui_setup() {
 		ImGui::ColorEdit3("spec color", (float*)&s_color, misc_flags);
 		ImGui::SliderFloat("shininess", &shininess, 1.0, 500.f);
 		ImGui::ColorEdit3("emiss color", (float*)&e_color, misc_flags);
+		ImGui::SliderFloat("m (Cook-Torrance)", &ct_m, 0.001, 1.f);
+		ImGui::SliderFloat("eta (Cook-Torrance)", &ct_eta, 1, 2.0f);
+
+		ImGui::SliderFloat("ro (Oren-Nayar)", &on_ro, 0.0, 1.0f);
+		ImGui::SliderFloat("sigma (Oren-Nayar)", &on_sigma, 0.01, 2.0f);
 		ImGui::EndMenu();
 	}
 
@@ -248,10 +262,10 @@ int main(int argc, char** argv)
 
 
 	/* create a  sphere   centered at the origin with radius 1*/
-	r_sphere = shape_maker::sphere(2);
+	r_sphere = shape_maker::sphere(5);
 
 	/* create a cone (for the tip of the arrow) */
-	r_torus = shape_maker::torus(0.5f, 1.f, 20, 20);
+	r_torus = shape_maker::torus(0.5f, 1.f, 50, 50);
 
 	/* create a cone (for the tip of the arrow) */
 	r_cone = shape_maker::cone(1.f, 1.f, 10);
@@ -312,6 +326,14 @@ int main(int argc, char** argv)
 		glUniform1f(basic_shader["uShininess"], shininess);
 		glUniform3fv(basic_shader["uLightColor"], 1, &l_color[0]);
 		glUniform3f(basic_shader["uLDir"], Ldir.x, Ldir.y, Ldir.z);
+
+		// Cook-Torrance parameters
+		glUniform1f(basic_shader["uCT_m"], ct_m);
+		glUniform1f(basic_shader["uCT_eta"], ct_eta);
+
+		// Oren-Nayar parameters
+		glUniform1f(basic_shader["uON_sigma"], on_sigma);
+		glUniform1f(basic_shader["uON_ro"], on_ro);
 
 
 		stack.push();

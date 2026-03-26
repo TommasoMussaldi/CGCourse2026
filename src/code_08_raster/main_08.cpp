@@ -14,8 +14,8 @@
 
  	#define	TRACKBALL_AXES		// draw the trackball axes
  	#define	TRACKBALL_SPHERE	// draw the trackball sphere
- //	#define SCISSOR		// show scissor  (also uncomment one of the others to see something)
- // #define ZFIGHT		// show Z Fighting
+// 	#define SCISSOR		// show scissor  (also uncomment one of the others to see something)
+//  #define ZFIGHT		// show Z Fighting
 // 	#define STENCIL		// show stenciling
 // #define BLENDING	// show blending
 
@@ -336,7 +336,7 @@ int main(void)
 		stack.mult(glm::translate(glm::vec3(0, 0, -0.1)));
 		glUniformMatrix4fv(flat_shader["uModel"], 1, GL_FALSE, glm::value_ptr(stack.m()));
 		glUniform4f(flat_shader["uColor"], 1.0, 0.0, 0.0,1.0);
-		glDrawElements(r_rect.elements[0].mode, r_rect.elements[0].count, r_rect.elements[0].itype, 0);
+		glDrawElements(r_rect().mode, r_rect().count, r_rect().itype, 0);
 		stack.pop();
 
  		glEnable(GL_POLYGON_OFFSET_FILL);
@@ -347,7 +347,7 @@ int main(void)
 		stack.push();
 		stack.mult(glm::scale( glm::vec3(2,2, 1)));
 		glUniformMatrix4fv(flat_shader["uModel"], 1, GL_FALSE, glm::value_ptr(stack.m()));
-		glDrawElements(r_rect.elements[0].mode, r_rect.elements[0].count, r_rect.elements[0].itype, 0);
+		glDrawElements(r_rect().mode, r_rect().count, r_rect().itype, 0);
 		stack.pop();
 
 		glDisable(GL_POLYGON_OFFSET_FILL);

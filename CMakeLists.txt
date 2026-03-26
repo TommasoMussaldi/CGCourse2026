@@ -29,11 +29,14 @@ if(UNIX AND NOT APPLE)
   target_link_libraries(glad PUBLIC dl)
 endif()
 
-# GLM
+# GLM (interface)
 add_library(glm INTERFACE)
 target_include_directories(glm INTERFACE external)
 
+# tinygltf (header-only)
+target_include_directories(glm INTERFACE external/tinygltf)
 
+# IMGUI
 set(IMGUI_SOURCES
     ${CMAKE_SOURCE_DIR}/external/imgui/imgui.cpp
     ${CMAKE_SOURCE_DIR}/external/imgui/imgui_draw.cpp
