@@ -277,7 +277,7 @@ int main(int argc, char** argv)
 	std::vector<renderable> r_model;
 	box3 bbox;
 	gltf_loader loader;
-	loader.load_to_renderable("../../models/cabin.glb", r_model, bbox);
+	loader.load_to_renderable("../../../models/cabin.glb", r_model, bbox);
 
 	/* Transformation to setup the point of view on the scene */
 	proj = glm::perspective(glm::radians(40.f), width / float(height), 2.f, 20.f);

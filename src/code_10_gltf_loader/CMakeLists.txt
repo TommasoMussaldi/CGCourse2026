@@ -12,7 +12,7 @@ target_include_directories(code_10_gltf_loader PRIVATE
 )
 
 # Per Visual Studio: directory di lavoro
-set_property(TARGET code_09_lighting_shading PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
+set_property(TARGET code_10_gltf_loader PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
 
 # Link libraries
 target_link_libraries(code_10_gltf_loader PRIVATE

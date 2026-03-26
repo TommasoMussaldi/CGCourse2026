@@ -195,7 +195,7 @@ struct gltf_loader {
 				int index;
 
 
-				memcpy_s(r.mater.base_color_factor,sizeof(double)*4,&mat.pbrMetallicRoughness.baseColorFactor[0], sizeof(double) * 4);
+				memcpy(r.mater.base_color_factor, &mat.pbrMetallicRoughness.baseColorFactor[0], sizeof(double) * 4);
 				
 				r.mater.alpha_mode   = mat.alphaMode;
 				r.mater.alpha_cutoff = mat.alphaCutoff;

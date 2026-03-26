@@ -13,6 +13,7 @@ target_link_libraries(code_03_wrapping_shaders_buffers
     PRIVATE
         glfw
         glad
+        glm
         OpenGL::GL
 )
 
