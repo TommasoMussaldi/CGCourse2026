@@ -9,6 +9,7 @@ add_subdirectory(code_07_trackball)
 add_subdirectory(code_08_raster)
 add_subdirectory(code_09_lighting_shading)
 add_subdirectory(code_10_gltf_loader)
+add_subdirectory(code_11_metaballs)
 
 
 
