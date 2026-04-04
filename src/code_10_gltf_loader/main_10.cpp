@@ -225,7 +225,7 @@ int main(int argc, char** argv)
 	/* Create a windowed mode window and its OpenGL context */
 	width = 1000;
 	height = 800;
-	window = glfwCreateWindow(width, height, "code_09_lighting_shading", NULL, NULL);
+	window = glfwCreateWindow(width, height, "code_10_gltf_loader", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
